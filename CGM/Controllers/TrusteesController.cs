@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using CGM.Service.Dtos;
 using CGM.Service.Services;
+using CGM.Service.Interfaces;
 
 namespace CGM.Api.Controllers
 {
@@ -9,9 +10,9 @@ namespace CGM.Api.Controllers
     [ApiController]
     public class TrusteesController : ControllerBase
     {
-        private readonly TrusteeService trusteeService;
+        private readonly ITrusteeService trusteeService;
 
-        public TrusteesController(TrusteeService _trusteeService)
+        public TrusteesController(ITrusteeService _trusteeService)
         {
             trusteeService = _trusteeService;
         }

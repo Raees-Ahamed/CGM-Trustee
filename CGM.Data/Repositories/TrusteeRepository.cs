@@ -20,8 +20,9 @@ namespace CGM.Data.Repositories
 
         public async Task<Trustee> AddTrustee(Trustee trustee)
         {
-            var isAdded = await context.Trustees.AddAsync(trustee);
-            return isAdded.Entity;
+            var isAdded = context.Trustees.AddAsync(trustee);
+            await context.SaveChangesAsync();
+            return trustee;
         }
 
         public async Task<IEnumerable<Trustee>> GetAllTrustee()

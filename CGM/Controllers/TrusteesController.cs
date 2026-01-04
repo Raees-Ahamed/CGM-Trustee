@@ -21,7 +21,7 @@ namespace CGM.Api.Controllers
         [Route("add-new-trustee")]
         public async Task<IActionResult> AddTrustee(AddTrusteeDto addTrusteeDto)
         {
-            return Ok("Trustee added successfully.");
+            return Ok(await trusteeService.AddTrustee(addTrusteeDto));
         }
 
         [HttpGet]
